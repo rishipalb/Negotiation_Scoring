@@ -146,3 +146,4 @@ plt.title("Efficient Frontier: Boeing vs IAM with Combined Impact")
 plt.grid()
 plt.scatter(frontier_df["Boeing Value"], frontier_df["IAM Value"], color='blue', alpha=0.7)  # Add individual dots
 st.pyplot(plt)
+
