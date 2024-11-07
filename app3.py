@@ -143,22 +143,6 @@ for issue, value in iam_weighted_values.items():
 st.write(f"**Total Monetary Impact for IAM's Issues: ${iam_total_value:,.2f}**")
 
 
-# Display tangible outputs for each issue
-st.header("Tangible Outputs for Boeing and IAM")
-
-# Boeing's issues and their monetary impact
-st.subheader("Boeing Issues in Monetary Terms")
-for issue, value in boeing_weighted_values.items():
-    st.write(f"{issue}: ${value:,.2f}")
-st.write(f"**Total Monetary Impact for Boeing's Issues: ${boeing_total_value:,.2f}**")
-
-# IAM's issues and their monetary impact
-st.subheader("IAM Issues in Monetary Terms")
-for issue, value in iam_weighted_values.items():
-    st.write(f"{issue}: ${value:,.2f}")
-st.write(f"**Total Monetary Impact for IAM's Issues: ${iam_total_value:,.2f}**")
-
-
 # Efficient Frontier Calculation with Boeing and IAM values as coordinates
 boeing_weight_range = np.linspace(0, 1, 50)
 iam_weight_range = 1 - boeing_weight_range
