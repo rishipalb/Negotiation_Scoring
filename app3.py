@@ -11,6 +11,7 @@ default_boeing_issues = ["Wage Increase Flexibility", "Pension Reinstatement", "
 default_iam_issues = ["Significant Wage Increase", "Pension Restoration", "Healthcare Improvements", "Overtime Protections", "Control over Safety Training"]
 
 # Set parameters for S-shaped (sigmoid) and Default (exponential) curvatures
+st.header("Negotiation: Rishipal Bansode, Michael Smith, Sundar Sundar")
 st.header("Adjust Curvature Parameters")
 
 # Sigmoid curvature parameters
