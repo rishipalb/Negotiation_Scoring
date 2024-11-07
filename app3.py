@@ -87,36 +87,76 @@ for issue in default_iam_issues:
     iam_base_values[issue] = st.number_input(f"{issue} Base Value ($)", min_value=0.0, value=5000.0, step=100.0)
     iam_curvatures[issue] = st.selectbox(f"{issue} Curvature Type", ["Default", "Sigmoid"])
 
+# Define a small constant to avoid excessive reduction
+small_constant = 1
+
+# Define a small constant to adjust Boeing values and balance the impact
+small_constant = 1
+boeing_multiplier = 5  # To bring Boeing’s values closer to IAM's for comparable impact
+
 # Calculate weighted scores and tangible values for Boeing and IAM based on selected curvatures
 boeing_weighted_values = {}
 iam_weighted_values = {}
 
+# Reverse scaling for all Boeing issues
 for issue in default_boeing_issues:
     base_value = boeing_base_values[issue]
     weight = boeing_weights[issue]
     
-    if issue == "Wage Increase Flexibility":  # Apply inverse scaling for Boeing's wage issue
-        adjusted_score = inverse_scaling(boeing_scores[issue], base_value, weight)
-    elif boeing_curvatures[issue] == "Sigmoid":
-        adjusted_score = sigmoid(boeing_scores[issue], sigmoid_midpoint, sigmoid_steepness) * base_value * weight
+    # Apply reverse scaling with adjusted curvature formula for Boeing
+    if boeing_curvatures[issue] == "Sigmoid":
+        adjusted_score = (base_value * weight) / (sigmoid(boeing_scores[issue], sigmoid_midpoint, sigmoid_steepness) + small_constant)
     else:
-        adjusted_score = exponential(boeing_scores[issue], default_exponent) * base_value * weight
+        adjusted_score = (base_value * weight) / (exponential(boeing_scores[issue], default_exponent) + small_constant)
     
     boeing_weighted_values[issue] = adjusted_score
 
+# Direct scaling for IAM issues, adjusted to match Boeing's scaling better
 for issue in default_iam_issues:
     base_value = iam_base_values[issue]
     weight = iam_weights[issue]
     
+    # Apply selected curvature type for IAM issues with a smaller weight for balance
     if iam_curvatures[issue] == "Sigmoid":
-        adjusted_score = sigmoid(iam_scores[issue], sigmoid_midpoint, sigmoid_steepness) * base_value * weight
+        adjusted_score = sigmoid(iam_scores[issue], sigmoid_midpoint, sigmoid_steepness) * base_value * weight / 5  # Adjusted for balance
     else:
-        adjusted_score = exponential(iam_scores[issue], default_exponent) * base_value * weight
+        adjusted_score = exponential(iam_scores[issue], default_exponent) * base_value * weight / 5  # Adjusted for balance
     
     iam_weighted_values[issue] = adjusted_score
 
-boeing_total_value = sum(boeing_weighted_values.values())
+# Multiply Boeing’s total value by a factor to bring it closer to IAM’s
+boeing_total_value = sum(boeing_weighted_values.values()) * boeing_multiplier
 iam_total_value = sum(iam_weighted_values.values())
+
+# Display tangible outputs for each issue
+st.header("Tangible Outputs for Boeing and IAM")
+
+st.subheader("Boeing Issues in Monetary Terms")
+for issue, value in boeing_weighted_values.items():
+    st.write(f"{issue}: ${value:,.2f}")
+st.write(f"**Total Monetary Impact for Boeing's Issues: ${boeing_total_value:,.2f}**")
+
+st.subheader("IAM Issues in Monetary Terms")
+for issue, value in iam_weighted_values.items():
+    st.write(f"{issue}: ${value:,.2f}")
+st.write(f"**Total Monetary Impact for IAM's Issues: ${iam_total_value:,.2f}**")
+
+
+# Display tangible outputs for each issue
+st.header("Tangible Outputs for Boeing and IAM")
+
+# Boeing's issues and their monetary impact
+st.subheader("Boeing Issues in Monetary Terms")
+for issue, value in boeing_weighted_values.items():
+    st.write(f"{issue}: ${value:,.2f}")
+st.write(f"**Total Monetary Impact for Boeing's Issues: ${boeing_total_value:,.2f}**")
+
+# IAM's issues and their monetary impact
+st.subheader("IAM Issues in Monetary Terms")
+for issue, value in iam_weighted_values.items():
+    st.write(f"{issue}: ${value:,.2f}")
+st.write(f"**Total Monetary Impact for IAM's Issues: ${iam_total_value:,.2f}**")
+
 
 # Efficient Frontier Calculation with Boeing and IAM values as coordinates
 boeing_weight_range = np.linspace(0, 1, 50)
