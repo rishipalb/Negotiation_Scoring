@@ -12,10 +12,15 @@ Sample Curvature Visualization: View sample plots to understand the transformati
 Requirements
 
 **Python 3.8+**
+
 **Streamlit**
+
 **NumPy**
+
 **Matplotlib**
+
 **Pandas**
+
 **Installation**
 
 **Clone the repository:**
