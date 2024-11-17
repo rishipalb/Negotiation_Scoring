@@ -11,14 +11,14 @@ Efficient Frontier Visualization: Explore trade-offs between Boeing's cost savin
 Sample Curvature Visualization: View sample plots to understand the transformation of scores.
 Requirements
 
-** Python 3.8+
-** Streamlit
-** NumPy
-** Matplotlib
-** Pandas
-** Installation
+**Python 3.8+**
+**Streamlit**
+**NumPy**
+**Matplotlib**
+**Pandas**
+**Installation**
 
-** Clone the repository:
+**Clone the repository:**
 git clone <repository-url>
 cd boeing-iam-negotiation-tool
 Install required dependencies:
@@ -38,6 +38,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## Authors
 
-** Rishipal Bansode
-** Michael Smith
-** Sundar Sundar
+**Rishipal Bansode**
+**Michael Smith**
+**Sundar Sundar**
