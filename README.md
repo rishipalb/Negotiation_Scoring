@@ -21,11 +21,12 @@ Requirements
 **Clone the repository:**
 git clone <repository-url>
 cd boeing-iam-negotiation-tool
-Install required dependencies:
+**Install required dependencies:**
 pip install -r requirements.txt
-Run the application:
+**Run the application:**
 streamlit run app.py
-Usage
+
+**Usage**
 
 Adjust scores, weights, and base values for Boeing and IAM issues.
 Select the desired curvature type (Default or Sigmoid) and toggle curve reversal as needed.
@@ -38,6 +39,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## Authors
 
-**Rishipal Bansode**
-**Michael Smith**
+**Rishipal Bansode** **,**
+**Michael Smith** **,**
 **Sundar Sundar**
