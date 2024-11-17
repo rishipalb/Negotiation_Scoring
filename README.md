@@ -12,11 +12,7 @@ Sample Curvature Visualization: View sample plots to understand the transformati
 
 **Requirements:**
 
-Python 3.8+
-Streamlit
-NumPy
-Matplotlib
-Pandas
+Python 3.8+, Streamlit, NumPy, Matplotlib, Pandas
 
 **Installation:**
 
@@ -45,6 +41,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 **Rishipal Bansode**
 
-**Michael Smith** **
+**Michael Smith**
 
 **Sundar Sundar**
