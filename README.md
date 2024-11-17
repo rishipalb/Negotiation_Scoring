@@ -9,25 +9,24 @@ Curvature Selection: Choose between Default (Exponential) and Sigmoid (S-shaped)
 Financial Impact Analysis: Calculate and display monetary impacts for Boeing and IAM based on selected parameters.
 Efficient Frontier Visualization: Explore trade-offs between Boeing's cost savings and IAM's cost impacts with an interactive scatter plot.
 Sample Curvature Visualization: View sample plots to understand the transformation of scores.
-Requirements
 
-**Python 3.8+**
+**Requirements:**
 
-**Streamlit**
+Python 3.8+
+Streamlit
+NumPy
+Matplotlib
+Pandas
 
-**NumPy**
-
-**Matplotlib**
-
-**Pandas**
-
-**Installation**
+**Installation:**
 
 **Clone the repository:**
 git clone <repository-url>
 cd boeing-iam-negotiation-tool
+
 **Install required dependencies:**
 pip install -r requirements.txt
+
 **Run the application:**
 streamlit run app.py
 
@@ -44,6 +43,8 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## Authors
 
-**Rishipal Bansode** **,**
-**Michael Smith** **,**
+**Rishipal Bansode**
+
+**Michael Smith** **
+
 **Sundar Sundar**
