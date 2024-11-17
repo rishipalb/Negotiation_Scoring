@@ -2,6 +2,10 @@
 
 This Streamlit app provides an interactive platform to analyze the financial and strategic impacts of negotiation outcomes between Boeing and the IAM union. It incorporates customizable scoring, weights, and curvature types for both parties' negotiation issues, enabling dynamic visualization of monetary impacts and trade-offs.
 
+
+## Streamlit App
+https://negotiationscoring-8ce9pbx3rsfzjp2fhohrec.streamlit.app
+
 ## Features
 
 Customizable Inputs: Adjust scores, weights, and base values for Boeing and IAM issues.
